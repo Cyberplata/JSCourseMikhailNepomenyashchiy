@@ -25,14 +25,13 @@
     </div>
 
     <script>
+        //Моё решение
+        /*
         const secretNum = Math.ceil(Math.random() * 10);
-        //var secretNum = Math.ceil(Math.random() * 10);
         let tries = 5;
         
         function guessNum(num) {
-          //const answers =[];
-            //const answer = prompt('Давай свой варик', 'Введи число');
-            //answers.push(answer);
+
             if(num !== secretNum && tries !== 0) {
                alert(`Не правильное число у тебя осталось попыток ${tries--}`);
             } else if(tries === 0) {
@@ -41,9 +40,24 @@
                alert('Ты выиграл!!!');
                return
             }
-            //alert('Ты проиграл, лузер!!!');
-         }
+         }*/
           
+
+         //Решение с форума-степика
+         const luckyNumber = Math.ceil(Math.random() * 10);
+         let tries = 5;
+
+         function guessNum(num) {
+            if(tries) {
+                if(num === luckyNumber) {
+                    alert("Вы выиграли! Заданное число является " + num);
+                    tries = 0;
+                } else {
+                    alert("Вы не угадали! Это число " + (num > luckyNumber ? "меньше загаданного" : "больше загаданного"));
+                    alert(`У вас ${--tries ? `осталось ${tries} попытки!` : `нету попыток более. Игра окончена!`}`);
+                }
+            }
+         }
         
     </script>
 </body>

@@ -9,3 +9,14 @@ const developer = {
 for (let prop in developer) {
    console.log(prop, developer[prop]);
 }
+
+
+const htmlDiv = {
+   className: 'column',
+   rel: 'main',
+   id: 'block',
+};
+
+for(const prop in htmlDiv) {
+   console.log(htmlDiv[prop]);
+}

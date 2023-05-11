@@ -36,6 +36,7 @@ const person = {
    changeSurname(newName, surname) {
       this.newName = newName;
       this.surname = surname;
+      console.log(this);
    },
 };
 person.greeting();

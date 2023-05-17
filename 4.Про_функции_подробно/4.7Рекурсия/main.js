@@ -9,7 +9,7 @@
 // }
 //  recurse(); // ошибка - бесконечный цикл
 
-
+/*
 function factorial(n) {
    if (n === 0) {
       return 1;
@@ -33,3 +33,30 @@ function repeater(char) {
 
 console.log(repeater('x'));
 console.log(repeater('a2'));
+*/
+
+
+
+/*                                                   Задача с курса
+Напишите функцию getLength, которая в качестве параметра будет принимать массив и рекурсивно высчитывать его длину (количество элементов).
+
+По условию задачи нельзя использовать встроенное свойство length массива.
+
+Используйте метод pop для удаления элементов массива, чтобы подсчитать итоговое количество. 
+*/
+
+
+function getLength(arr) {
+   let count = 0;
+
+   if(arr.pop() === undefined) { // Если мы вызовем pop() на пустом массив, он вернёт значение undefined
+      return count;
+   } else {
+      count++;
+      //console.log(count);
+      return count++ + getLength(arr);
+   }
+}
+
+
+console.log(getLength([1, 2, 3, 5, 7]));

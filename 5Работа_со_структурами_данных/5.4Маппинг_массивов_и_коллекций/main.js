@@ -63,12 +63,32 @@ const developers = [
    },
 ];
 
-const middleDevelopers = developers.map(function(newValues) {
-   return {
-      ...newValues,
-      salary: newValues.salary + 500,
-      skills: [...newValues.skills, 'TypeScript'],
-   };
-})
 
+// const middleDevelopers = developers.map(function(newValues) {
+//    return {
+//       ...newValues,
+//       skills: [...newValues.skills, 'TypeScript'],
+//       salary: newValues.salary + 500,
+//    };
+// })
+
+// console.log(middleDevelopers);
+
+
+//Решение Сухова Станислава
+function addNewCollection(obj) {
+   const newObj = {
+      ...obj,
+   };
+
+   newObj.skills = [...newObj.skills, 'TypeScript'];
+   newObj.salary += 500;
+
+   return newObj;
+}
+
+const middleDevelopers = developers.map(addNewCollection);
+
+// console.log(developers);
 console.log(middleDevelopers);
+// console.log(developers);

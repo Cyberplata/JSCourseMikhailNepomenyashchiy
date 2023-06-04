@@ -58,4 +58,27 @@ const [
    b = 0,
    [c = 1, d = 1] = [],
 ] = numbers || [];
-console.log(a, b, c, d)
+// console.log(a, b, c, d)
+
+let x = 10;
+let y = 20;
+[y, x] = [x, y]
+
+// console.log(y, x)
+
+
+/*
+                                       Практика на деструктуризацию массивов
+Дана функция getInfo, возвращающая массив в результате вызова. 
+Создайте переменные carName и carSeries и при помощи деструктуризации назначьте ей значения, возвращаемые функцией.
+*/
+function getInfo() {
+    return ['BMW', 'X3'];
+}
+console.log(getInfo()); // [ 'BMW', 'X3' ]
+
+const [
+   carName = '', 
+   carSeries = '',
+] = getInfo() || [];
+console.log('carName:', carName, 'carSeries:', carSeries); // carName: BMW carSeries: X3

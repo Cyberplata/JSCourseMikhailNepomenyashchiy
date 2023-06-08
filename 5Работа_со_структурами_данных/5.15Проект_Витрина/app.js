@@ -16,27 +16,49 @@
 
 const products = [
    {
-       id: 1,
-       title: 'Lenovo Yoga',
-       price: 3000,
+      id: 1,
+      title: 'Lenovo Yoga',
+      price: 3000,
    },
    {
-       id: 2,
-       title: 'Acer Aspire',
-       price: 1800,
+      id: 2,
+      title: 'Acer Aspire',
+      price: 1800,
    },
    {
-       id: 3,
-       title: 'Dell Vostro',
-       price: 3400
+      id: 3,
+      title: 'Dell Vostro',
+      price: 3400
    },
 ];
 
 let order = [];
 
 function addToBasket(productId) {
+   let counter = 0;
    // TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
-
+   if (productId === 1 && counter === 0) {
+      counter++;
+      order.push((products.find((el) => el.id === 1)));
+      console.log(order);
+      console.log(counter);
+   }
+   if (productId === 2 && counter === 0) {
+      counter++;
+      order.push((products.find((el) => el.id === 2)));
+      console.log(order);
+      console.log(counter);
+   }
+   if (productId === 3 && counter === 0) {
+      counter++;
+      order.push((products.find((el) => el.id === 3)));
+      console.log(order);
+      console.log(counter);
+   }
+   if (order.id === 1 || order.id === 2 || order.id === 3) {
+      console.log(order);
+      alert('Товар уже в корзине!');
+   }
    // TODO: если товар еще не в корзине, добавить его из массива products
 
    // Эти строчки не трогаем, они отвечают за переотрисовку страницы
@@ -67,9 +89,9 @@ function renderCart() {
 
    cart.innerHTML = '';
    order.forEach(item => {
-       const el = document.createElement('li');
-       el.innerText = item.title;
-       el.onclick = () => removeFromBasket(item.id);
-       cart.appendChild(el);
+      const el = document.createElement('li');
+      el.innerText = item.title;
+      el.onclick = () => removeFromBasket(item.id);
+      cart.appendChild(el);
    })
 }

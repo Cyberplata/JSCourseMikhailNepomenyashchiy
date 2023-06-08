@@ -35,27 +35,27 @@ const products = [
 let order = [];
 
 function addToBasket(productId) {
-   let counter = 0;
+   let counter = 1;
    // TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
-   if (productId === 1 && counter === 0) {
-      counter++;
+   if (productId === 1 && counter) {
+      counter--;
       order.push((products.find((el) => el.id === 1)));
       console.log(order);
       console.log(counter);
    }
-   if (productId === 2 && counter === 0) {
-      counter++;
+   if (productId === 2 && counter) {
+      counter--;
       order.push((products.find((el) => el.id === 2)));
       console.log(order);
       console.log(counter);
    }
-   if (productId === 3 && counter === 0) {
-      counter++;
+   if (productId === 3 && counter) {
+      counter--;
       order.push((products.find((el) => el.id === 3)));
       console.log(order);
       console.log(counter);
    }
-   if (order.id === 1 || order.id === 2 || order.id === 3) {
+   if (!counter) {
       console.log(order);
       alert('Товар уже в корзине!');
    }

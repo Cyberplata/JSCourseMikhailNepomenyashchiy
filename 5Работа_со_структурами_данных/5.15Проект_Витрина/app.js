@@ -34,30 +34,36 @@ const products = [
 
 let order = [];
 
+
+// if (order[0] === products.find((el) => el.id === 1)) {
+//    console.log(order);
+//    alert('Товар уже в корзине!')
+// }
+
 function addToBasket(productId) {
-   let counter = 1;
    // TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
-   if (productId === 1 && counter) {
-      counter--;
+   
+   if (productId === 1) {
       order.push((products.find((el) => el.id === 1)));
       console.log(order);
-      console.log(counter);
    }
-   if (productId === 2 && counter) {
-      counter--;
+   if (productId === 2) {
       order.push((products.find((el) => el.id === 2)));
       console.log(order);
-      console.log(counter);
    }
-   if (productId === 3 && counter) {
-      counter--;
+   if (productId === 3) {
       order.push((products.find((el) => el.id === 3)));
       console.log(order);
-      console.log(counter);
    }
-   if (!counter) {
-      console.log(order);
-      alert('Товар уже в корзине!');
+
+   if (order.find((el) => el.id === 1) === order[0]) {
+      alert('Товар уже в корзине!'); 
+   }
+   if (order.find((el) => el.id === 2) === order[1]) {
+      alert('Товар уже в корзине!'); 
+   }
+   if (order.find((el) => el.id === 3) === order[2]) {
+      alert('Товар уже в корзине!'); 
    }
    // TODO: если товар еще не в корзине, добавить его из массива products
 
@@ -77,7 +83,10 @@ function removeFromBasket(productId) {
 
 function rerenderTotalPrice() {
    // TODO: опишите функционал подсчета общей стоимости заказа
-
+   let budget = order.reduce((acc, user) => {
+      return acc + user.price;
+   }, 0);
+   console.log(budget);
 
    // Не меняйте эту строчку
    document.getElementById('total').innerText = totalPrice;

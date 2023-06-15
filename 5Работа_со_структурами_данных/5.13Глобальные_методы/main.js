@@ -5,7 +5,7 @@ Number({}) // NaN
 Number(true) // 1
 Number(false) // 0
 
-String(000) // "0"
+String(0) // "0"
 String(123) // "123"
 
 Boolean('') // false

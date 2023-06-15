@@ -34,38 +34,17 @@ const products = [
 
 let order = [];
 
-
-// if (order[0] === products.find((el) => el.id === 1)) {
-//    console.log(order);
-//    alert('Товар уже в корзине!')
-// }
-
 function addToBasket(productId) {
    // TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
-   
-   if (productId === 1) {
-      order.push((products.find((el) => el.id === 1)));
-      console.log(order);
+   if (order.find(el => el.id === productId)) {
+      return alert('Товар уже в корзине!');
+   } else {
+      // TODO: если товар еще не в корзине, добавить его из массива products
+      order = [
+         ...order,
+         products.find(el => el.id === productId)
+      ];
    }
-   if (productId === 2) {
-      order.push((products.find((el) => el.id === 2)));
-      console.log(order);
-   }
-   if (productId === 3) {
-      order.push((products.find((el) => el.id === 3)));
-      console.log(order);
-   }
-
-   if (order.find((el) => el.id === 1) === order[0]) {
-      alert('Товар уже в корзине!'); 
-   }
-   if (order.find((el) => el.id === 2) === order[1]) {
-      alert('Товар уже в корзине!'); 
-   }
-   if (order.find((el) => el.id === 3) === order[2]) {
-      alert('Товар уже в корзине!'); 
-   }
-   // TODO: если товар еще не в корзине, добавить его из массива products
 
    // Эти строчки не трогаем, они отвечают за переотрисовку страницы
    renderCart();
@@ -74,7 +53,10 @@ function addToBasket(productId) {
 
 function removeFromBasket(productId) {
    // TODO: описать логику удаления товара из корзины
-
+   
+   // order = order.filter(item = item.id !== productId)
+   const index = order.indexOf(products[productId]);
+   order.splice(index, 1);
    // Эти строчки не трогаем, они отвечают за переотрисовку страницы
    renderCart();
    rerenderTotalPrice();
@@ -83,10 +65,10 @@ function removeFromBasket(productId) {
 
 function rerenderTotalPrice() {
    // TODO: опишите функционал подсчета общей стоимости заказа
-   let budget = order.reduce((acc, user) => {
+   const totalPrice = order.reduce((acc, user) => {
       return acc + user.price;
    }, 0);
-   console.log(budget);
+   console.log(totalPrice);
 
    // Не меняйте эту строчку
    document.getElementById('total').innerText = totalPrice;

@@ -23,7 +23,7 @@ anchor.lastElementChild
 anchor.firstChild // #text
 
    // c) Получение соседних элементов .nextElementSibling
-<button></button>
+//<button></button>
 
 // Если нам нужен следующий элемент => 
 anchor.nextElementSibling.nextElementSibling // <div class="page-header-main"></div>

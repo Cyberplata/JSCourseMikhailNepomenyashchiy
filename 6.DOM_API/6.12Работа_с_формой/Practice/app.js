@@ -37,25 +37,33 @@ function handleSubmit(event) {
    event.preventDefault();
    console.log('submit');
 
-   if(validate()) {
+   if (validate()) {
       // submit AJAX
       form.reset(); // если true очищает запрос
    } else {
-      alert('Fix empty fields');
+      console.log('Fix fields!!!');
    }
 }
 
 function validate() {
    let isValid = true;
+   const inputName = document.querySelector('input[name="login"]'); // получаем поле ввода с типом name
+   const inputPassword = document.querySelector('input[name="password"]'); // получаем поле ввода с типом password
 
-   inputs.forEach(input => {
-      if (!input.value.trim()) { // проверка если строка пустая
-         alert('All field are required')
-         isValid = false;
+   if (!(inputName.value.trim() && inputPassword.value.trim())) { // проверка, что поля ввода не пустые
+      console.log('All fields are required');
+      return isValid = false;
+   }
+
+   for (let user of registeredUsers) { // находим подмассивы
+      if (user[0] === inputName.value.trim() && user[1] === inputPassword.value.trim()) { // проверяем, что введённые данные равны
+         console.log('Access granted');
+         return isValid;
       } else {
-         input.style.borderColor = 'currentColor';
+         console.log('Incorrect login or password');
+         return isValid = false;
       }
-   });
+   }
 
    return isValid;
 }

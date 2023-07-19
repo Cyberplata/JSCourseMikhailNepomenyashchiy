@@ -20,7 +20,12 @@ function handleClick() {
 function saveToStorage(todo) {
    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
 
-   localStorage.setItem('tasks', JSON.stringify([...todos, todo]))
+   localStorage.setItem('tasks', JSON.stringify([...todos, todo]));
+
+   console.log(todos);
+   console.log(localStorage.getItem('tasks'));
+   console.log(JSON.stringify([...todos]));
+   console.log(([...todos, todo]));
 }
 
 function loadTodos() {

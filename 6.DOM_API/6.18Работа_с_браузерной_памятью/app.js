@@ -22,10 +22,10 @@ function saveToStorage(todo) {
 
    localStorage.setItem('tasks', JSON.stringify([...todos, todo]));
 
-   console.log(todos);
-   console.log(localStorage.getItem('tasks'));
-   console.log(JSON.stringify([...todos]));
-   console.log(([...todos, todo]));
+   // console.log(todos);
+   // console.log(localStorage.getItem('tasks'));
+   // console.log(JSON.stringify([...todos]));
+   // console.log(([...todos, todo]));
 }
 
 function loadTodos() {
@@ -41,18 +41,27 @@ function createTodo(text) {
    li.innerText = text;
    li.className = 'todo-item';
    li.addEventListener('click', removeTodo);
-   li.addEventListener('click', removeLocalStorage)
 
    list.appendChild(li);
 }
 
-function removeLocalStorage() {
-   localStorage.clear()
+function removeLocalStorage(text) {
+   const todos = JSON.parse(localStorage.getItem('tasks'));
+
+   localStorage.setItem(
+      'tasks', 
+      JSON.stringify(todos.filter(todo => todo !== text))
+   );
+
+   console.log('todos ', todos);
+   console.log('(todos.filter(todo => todo !== text)) ', (todos.filter(todo => todo !== text)));
+   console.log('JSON.stringify(todos.filter(todo => todo !== text)) ', JSON.stringify(todos.filter(todo => todo !== text)));
 }
 
 function removeTodo() {
    this.removeEventListener('click', removeTodo);
    this.remove();
-   removeLocalStorage();
-   this.removeEventListener('click', removeLocalStorage)
+   removeLocalStorage(this.innerText)
+   console.log(removeLocalStorage('this ', this));
+   console.log(removeLocalStorage('this.innerText ', this.innerText));
 }

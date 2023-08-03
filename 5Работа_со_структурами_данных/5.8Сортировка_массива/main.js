@@ -31,9 +31,9 @@ const numbers = [1, 2, 3, 4, 10, 12, 23];
 const cities = ['Madrid', 'Amsterdam', 'Paris', 'Berlin', 'Kiev'];
 
 numbers.sort();
-// numbers.sort((a, b) => b - a);
+numbers.sort((a, b) => b - a);
 // numbers.reverse();
-// console.log(numbers);
+console.log(numbers);
 
 // cities.sort((a, b) => b - a);
 // console.log(cities);

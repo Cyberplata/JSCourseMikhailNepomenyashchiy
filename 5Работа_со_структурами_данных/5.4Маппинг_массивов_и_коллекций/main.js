@@ -42,6 +42,7 @@ const result = mainCode(numbers);
 /*Дана коллекция developers. Создайте на ее основе новую коллекцию middleDevelopers, 
 увеличив значения ключа salary на 500, а также добавив к ключу skills значение 'TypeScript'. */
 
+
 const developers = [
    {
        id: 1,
@@ -63,14 +64,23 @@ const developers = [
    },
 ];
 
+const middleDevelopers1 = developers.map((value) => {
+   return {
+      ...value,
+      salary: value.salary + 500,
+      skills: [...value.skills, 'TypeScript'],
+   }
+})
 
-// const middleDevelopers = developers.map(function(newValues) {
-//    return {
-//       ...newValues,
-//       skills: [...newValues.skills, 'TypeScript'],
-//       salary: newValues.salary + 500,
-//    };
-// })
+console.log(middleDevelopers1);
+
+const middleDevelopers = developers.map(function(newValues) {
+   return {
+      ...newValues,
+      skills: [...newValues.skills, 'TypeScript'],
+      salary: newValues.salary + 500,
+   };
+})
 
 // console.log(middleDevelopers);
 
@@ -87,7 +97,7 @@ function addNewCollection(obj) {
    return newObj;
 }
 
-const middleDevelopers = developers.map(addNewCollection);
+// const middleDevelopers = developers.map(addNewCollection);
 
 // console.log(developers);
 // console.log(middleDevelopers);
@@ -152,8 +162,8 @@ const contacts = [
 //    return console.log("No such contact")
 //  }
 
- lookUpProfile("Kristian", "lastName") // Vos
- lookUpProfile("Sherlock", "likes") // ["Intriguing Cases", "Violin"]
-lookUpProfile("Bob", "number") // No such contact
-lookUpProfile("Akira", "address") // No such property
-lookUpProfile("Bob", "potato") // No such contact
+//  lookUpProfile("Kristian", "lastName") // Vos
+//  lookUpProfile("Sherlock", "likes") // ["Intriguing Cases", "Violin"]
+// lookUpProfile("Bob", "number") // No such contact
+// lookUpProfile("Akira", "address") // No such property
+// lookUpProfile("Bob", "potato") // No such contact

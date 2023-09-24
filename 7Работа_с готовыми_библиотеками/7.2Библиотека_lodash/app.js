@@ -8,14 +8,16 @@ const basket = {
 console.log(_.pickBy(basket, (val) => _.gte(val, 5))); // {milk: 6, potato: 20}
 
 
-function highAndLow(str) {
+/* function highAndLow(str) {
    const newArray = str.split(' ').sort((a, b) => b - a);
    return newArray.slice(0, 1).concat(newArray.slice(-1)).join(' ');
 }
 
 console.log(highAndLow("1 2 3 4 5"));  // return "5 1"
 console.log(highAndLow("1 2 -3 4 5")); // return "5 -3"
-console.log(highAndLow("1 9 3 4 -5")); // return "9 -5"
+console.log(highAndLow("1 9 3 4 -5")); // return "9 -5" */
+
+
 
 
 /* String Methods */

@@ -4,10 +4,47 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>7.2Библиотека_lodash</title>
+   <title>7.3Плавный_скролл</title>
+   <style>
+      body {
+         text-align: center;
+         margin: 0;
+         
+      }
+      .actions {
+         min-height: 100vh;
+         padding: 15px;
+      }
+      section {
+         min-height: 100vh;
+         padding: 15px;
+      }
+      button:hover {
+         background-color: navajowhite;
+      }
+   </style>
 </head>
 <body>
-   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+   <header>
+      <h1>Hello MoveTo</h1>
+      <div class="actions">
+         <button>Contacts</button>
+         <button>Out Features</button>
+      </div>
+   </header>
+
+   <section>
+      <div>Features</div>
+   </section>
+
+   <section style="background-color: navajowhite;">
+      <div>
+         <h2>Contacts</h2>
+         <button>Go Top</button>
+      </div>
+   </section>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
    <script src="app.js"></script>
 </body>
 </html>

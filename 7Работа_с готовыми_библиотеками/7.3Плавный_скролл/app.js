@@ -16,5 +16,7 @@ function handleClick(event) {
    const target = document.querySelector(this.getAttribute('href'));
    console.log(target);
    
-   moveTo.move(target);
+   moveTo.move(target, {
+      duration: 1800
+   });
 }

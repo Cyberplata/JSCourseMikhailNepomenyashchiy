@@ -25,22 +25,29 @@
    </style>
 </head>
 <body>
-   <header>
+   <header id="top">
       <h1>Hello MoveTo</h1>
       <div class="actions">
-         <button>Contacts</button>
-         <button>Out Features</button>
+         <button data-target="#features" data-mt-duration="1500">Out Features</button>
+         <button data-target="#contacts" data-mt-duration="2500">Contacts</button>
+         <a href="#map">Map</a>
       </div>
    </header>
 
-   <section>
+   <section id="features">
       <div>Features</div>
    </section>
 
-   <section style="background-color: navajowhite;">
+   <section id="contacts" style="background-color: navajowhite;">
       <div>
          <h2>Contacts</h2>
-         <button>Go Top</button>
+      </div>
+   </section>
+
+   <section id="map">
+      <div>
+         <h2>Map</h2>
+         <button data-target="#top" data-mt-duration="1500">Go Top</button>
       </div>
    </section>
 

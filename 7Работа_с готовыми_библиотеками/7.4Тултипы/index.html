@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>7.3Плавный_скролл</title>
+   <style>
+      body {
+         text-align: center;
+         margin: 0;
+         
+      }
+      .actions {
+         min-height: 100vh;
+         padding: 15px;
+      }
+      section {
+         min-height: 100vh;
+         padding: 15px;
+      }
+      button:hover {
+         background-color: navajowhite;
+      }
+   </style>
+</head>
+<body>
+   <header id="top">
+      <h1>Hello MoveTo</h1>
+      <div class="actions">
+         <button data-target="#features" data-mt-duration="1500">Out Features</button>
+         <button data-target="#contacts" data-mt-duration="2500">Contacts</button>
+         <a href="#map">Map</a>
+      </div>
+   </header>
+
+   <section id="features">
+      <div>Features</div>
+   </section>
+
+   <section id="contacts" style="background-color: navajowhite;">
+      <div>
+         <h2>Contacts</h2>
+      </div>
+   </section>
+
+   <section id="map">
+      <div>
+         <h2>Map</h2>
+         <button data-target="#top" data-mt-duration="1500">Go Top</button>
+      </div>
+   </section>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
+   <script src="app.js"></script>
+</body>
+</html>

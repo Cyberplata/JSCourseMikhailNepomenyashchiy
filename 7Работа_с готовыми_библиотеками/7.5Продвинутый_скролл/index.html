@@ -5,8 +5,12 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>7.3Плавный_скролл</title>
-   <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" /> <!-- подключаем тему -->
-   <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" /> <!-- подключаем анимацию -->
+   <!-- подключаем тему -->
+   <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" /> 
+   <!-- подключаем анимацию -->
+   <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" /> 
+   <!-- css CDN OverlayScrollbars -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css" integrity="sha512-jN4O0AUkRmE6Jwc8la2I5iBmS+tCDcfUd1eq8nrZIBnDKTmCp5YxxNN1/aetnAH32qT+dDbk1aGhhoaw5cJNlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <style>
       * {
          box-sizing: border-box;
@@ -31,7 +35,14 @@
       .actions {
          display: flex;
          gap: 1rem;
-         justify-content: center;
+      }
+      @media (min-width: 767px) {
+         .actions {
+            justify-content: center;
+         }
+      }
+      .actions > * {
+         flex-shrink: 0;
       }
       h1 {
          font-family: Arial, Helvetica, sans-serif;
@@ -55,15 +66,21 @@
       .tippy-box[data-theme~=light] {
          color: red;
       }
+      .overlay {
+         width: 100%;
+         overflow: hidden;
+      }
    </style>
 </head>
 <body>
    <header id="top">
       <h1>Hello MoveTo</h1>
-      <div class="actions">
-         <button data-target="#features" data-mt-duration="1500" data-tippy-content="Tooltip that works great">Out Features</button>
-         <button data-target="#contacts" data-mt-duration="2500" data-tippy-content="Another Tooltip">Contacts</button>
-         <a href="#map">Map</a>
+      <div class="overlay">
+         <div class="actions">
+            <button data-target="#features" data-mt-duration="1500" data-tippy-content="Tooltip that works great">Out Features</button>
+            <button data-target="#contacts" data-mt-duration="2500" data-tippy-content="Another Tooltip">Contacts</button>
+            <a href="#map">Map</a>
+         </div>
       </div>
    </header>
 
@@ -87,6 +104,8 @@
    <script src="https://unpkg.com/@popperjs/core@2"></script>  <!-- CDN -->
    <script src="https://unpkg.com/tippy.js@6"></script> <!-- CDN -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
+   <!-- js CDN OverlayScrollbars -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js" integrity="sha512-B1xv1CqZlvaOobTbSiJWbRO2iM0iii3wQ/LWnXWJJxKfvIRRJa910sVmyZeOrvI854sLDsFCuFHh4urASj+qgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <script src="app.js"></script>
 </body>
 </html>

@@ -30,6 +30,6 @@ function handleClick(event) {
 }
 
 tippy('[data-tippy-content]', {
-   theme: 'light',
-   animation: 'scale',
+   theme: 'light', // тема
+   animation: 'scale', // анимация
 });

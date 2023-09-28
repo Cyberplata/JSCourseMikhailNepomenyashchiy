@@ -15,16 +15,21 @@ function handleClick(event) {
 
    const target = document.querySelector(this.getAttribute('href'));
    console.log(target);  
-{/* 
+/* 
 <section id="map">
    <div>
       <h2>Map</h2>
       <button data-target="#top" data-mt-duration="1500">Go Top</button>
    </div>
 </section> 
-*/}
+*/
    
    moveTo.move(target, {
       duration: 1800
    });
 }
+
+tippy('[data-tippy-content]', {
+   theme: 'light',
+   animation: 'scale',
+});

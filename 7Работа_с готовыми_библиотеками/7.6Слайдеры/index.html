@@ -11,6 +11,8 @@
    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" /> 
    <!-- css CDN OverlayScrollbars -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css" integrity="sha512-jN4O0AUkRmE6Jwc8la2I5iBmS+tCDcfUd1eq8nrZIBnDKTmCp5YxxNN1/aetnAH32qT+dDbk1aGhhoaw5cJNlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!-- Swiper CDN  -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
    <style>
       * {
          box-sizing: border-box;
@@ -70,6 +72,15 @@
          width: 100%;
          overflow: hidden;
       }
+      .swiper {
+         width: 600px;
+         height: 300px;
+      }
+      .swiper-slide {
+         height: 100px;
+         background-color: maroon;
+         border: 1px solid #000;
+      }
    </style>
 </head>
 <body>
@@ -84,8 +95,26 @@
       </div>
    </header>
 
-   <section id="features">
-      <div>Features</div>
+   <!-- style="flex-direction: column;" -->
+   <section id="features" style="flex-direction: column;">
+      <h2>Features</h2>
+
+      <!-- Slider main container -->
+      <div class="swiper">
+         <!-- Additional required wrapper -->
+         <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+         </div>
+         <!-- If we need pagination -->
+         <div class="swiper-pagination"></div>
+      
+         <!-- If we need navigation buttons -->
+         <div class="swiper-button-prev"></div>
+         <div class="swiper-button-next"></div>
+      </div>
    </section>
 
    <section id="contacts" style="background-color: navajowhite;">
@@ -108,6 +137,8 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
    <!-- OverlayScrollbars CDN JS Продвинутый плавный скролл -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js" integrity="sha512-B1xv1CqZlvaOobTbSiJWbRO2iM0iii3wQ/LWnXWJJxKfvIRRJa910sVmyZeOrvI854sLDsFCuFHh4urASj+qgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <!-- Swiper JS -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
    <script src="app.js"></script>
 </body>
 </html>

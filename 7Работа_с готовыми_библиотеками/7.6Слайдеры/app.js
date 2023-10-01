@@ -35,8 +35,22 @@ tippy('[data-tippy-content]', {
 });
 
 OverlayScrollbars(document.querySelectorAll(".overlay"), { 
-   // scrollbars: {
-   //    autoHide: 'scroll'
-   // }
    className: 'os-host-flexbox'
+});
+
+const swiper = new Swiper('.swiper', {
+   // Optional parameters
+   direction: 'horizontal',
+
+   // If we need pagination
+   pagination: {
+      el: '.swiper-pagination',
+   },
+
+   // Navigation arrows
+   navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+   },
+
 });

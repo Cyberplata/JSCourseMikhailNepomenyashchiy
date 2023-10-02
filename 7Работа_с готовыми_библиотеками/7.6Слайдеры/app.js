@@ -41,6 +41,12 @@ OverlayScrollbars(document.querySelectorAll(".overlay"), {
 const swiper = new Swiper('.swiper', {
    // Optional parameters
    direction: 'horizontal',
+/*    slidesPerView: 2,
+   spaceBetween: 20, */
+   effect: 'cube',
+   cubeEffect: {
+      slideShadows: false,
+   },
 
    // If we need pagination
    pagination: {

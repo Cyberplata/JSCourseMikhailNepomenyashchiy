@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>7.9 Анимации</title>
+   <!-- подключаем тему Tippy.js -->
+   <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" /> 
+   <!-- подключаем анимацию Tippy.js -->
+   <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" /> 
+   <!-- css CDN OverlayScrollbars -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css" integrity="sha512-jN4O0AUkRmE6Jwc8la2I5iBmS+tCDcfUd1eq8nrZIBnDKTmCp5YxxNN1/aetnAH32qT+dDbk1aGhhoaw5cJNlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!-- Swiper CDN  -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+   <style>
+      * {
+         box-sizing: border-box;
+      }
+      body {
+         margin: 0;
+         
+      }
+      header {
+         background-color: mediumorchid;
+         color: white;
+         flex-direction: column;
+      }
+      section, header {
+         padding: 4rem 1rem;
+         text-align: center;
+         min-height: 100vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      .actions {
+         display: flex;
+         gap: 1rem;
+      }
+      @media (min-width: 767px) {
+         .actions {
+            justify-content: center;
+         }
+      }
+      .actions > * {
+         flex-shrink: 0;
+      }
+      h1 {
+         font-family: Arial, Helvetica, sans-serif;
+      }
+      a, button {
+         color: black;
+         background-color: moccasin;
+         border: none;
+         padding: 1rem 1.2rem;
+         text-transform: uppercase;
+         outline: none;
+         cursor: pointer;
+         text-decoration: none;
+         font-family: Arial, Helvetica, sans-serif;
+         font-weight: 400;
+         font-size: 1rem;
+      }
+      a:hover, button:hover {
+         background-color: navajowhite;
+      }
+      .tippy-box[data-theme~=light] {
+         color: red;
+      }
+      .overlay {
+         width: 100%;
+         overflow: hidden;
+      }
+      .swiper {
+         width: 400px;
+         height: 300px;
+      }
+      .swiper-slide {
+         height: 100px;
+         width: 300px;
+         background-color: maroon;
+         border: 1px solid #000;
+      }
+      form {
+         border: 1px solid #000;
+      }
+      form > div {
+         padding: 1rem;
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+      }
+   </style>
+</head>
+<body>
+   <header id="top">
+      <h1>Hello MoveTo</h1>
+      <div class="overlay">
+         <div class="actions">
+            <button data-target="#features" data-mt-duration="1500" data-tippy-content="Tooltip that works great">Out Features</button>
+            <button data-target="#contacts" data-mt-duration="2500" data-tippy-content="Another Tooltip">Contacts</button>
+            <a href="#map">Map</a>
+         </div>
+      </div>
+   </header>
+
+   <!-- style="flex-direction: column;" -->
+   <section id="features" style="flex-direction: column;">
+      <h2>Features</h2>
+
+      <!-- Slider main container -->
+      <div class="swiper">
+         <!-- Additional required wrapper -->
+         <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+         </div>
+         <!-- If we need pagination -->
+         <div class="swiper-pagination"></div>
+      
+         <!-- If we need navigation buttons -->
+         <div class="swiper-button-prev"></div>
+         <div class="swiper-button-next"></div>
+      </div>
+   </section>
+
+   <section id="contacts" style="background-color: navajowhite;">
+      <div>
+         <h2>Contacts</h2>
+
+         <span id="toggler">Toggle Form</span>
+
+         <form autocomplete="off" style="opacity: 0; height: 0; overflow: hidden;">
+            <div>
+               <label>
+                  Phone
+                  <input type="text" id="phone">
+               </label>
+               <label>
+                  Age
+                  <input type="text" id="age">
+               </label>
+               <label>
+                  Date
+                  <input type="text" id="date">
+               </label>
+            </div>
+         </form>
+      </div>
+   </section>
+
+   <section id="map">
+      <div>
+         <h2>Map</h2>
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24304.29563522865!2d-3.6966970285854717!3d40.40803212219075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228a0462ae9a5%3A0xb810b11635a3dc76!2z0KDQtdGC0LjRgNC-LCDQnNCw0LTRgNC40LQsINCY0YHQv9Cw0L3QuNGP!5e0!3m2!1sru!2sru!4v1696278706669!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" class="lazyload" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         <button data-target="#top" data-mt-duration="1500">Go Top</button>
+      </div>
+   </section>
+
+   <!-- Tippy.js CDN Js Тултипы-->
+   <script src="https://unpkg.com/@popperjs/core@2"></script>  
+   <script src="https://unpkg.com/tippy.js@6"></script>
+   <!-- MoveTo CDN JS Плавный скролл  -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
+   <!-- OverlayScrollbars CDN JS Продвинутый плавный скролл -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js" integrity="sha512-B1xv1CqZlvaOobTbSiJWbRO2iM0iii3wQ/LWnXWJJxKfvIRRJa910sVmyZeOrvI854sLDsFCuFHh4urASj+qgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <!-- Swiper JS -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+   <!-- lazysizes -->
+   <script src="http://afarkas.github.io/lazysizes/lazysizes.min.js"></script>
+   <!-- imask -->
+   <script src="https://unpkg.com/imask"></script>
+   <!-- animejs cdn -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+   <script src="app.js"></script>
+</body>
+</html>

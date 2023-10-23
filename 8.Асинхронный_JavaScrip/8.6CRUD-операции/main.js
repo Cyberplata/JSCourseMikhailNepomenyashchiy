@@ -16,7 +16,6 @@ fetch('https://jsonplaceholder.typicode.com/pots/1')
    .catch(console.error)
 
 
-
    /* II. */
 
 fetch('https://jsonplaceholder.typicode.com/posts/1', {
@@ -32,9 +31,8 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
    .then(console.log)
    .catch(console.error)
 
-   // Promise {<pending>}
-   // {}
-
+// Promise {<pending>}
+// {}
 
 
    /* III. */
@@ -53,9 +51,8 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
 .then(console.log)
 .catch(console.error)
 
-   // Promise {<pending>}
-   // {id: 1}
-
+// Promise {<pending>}
+// {id: 1}
 
 
    /* IV. */
@@ -74,11 +71,12 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
 .then(console.log)
 .catch(console.error)
 
-   // Promise {<pending>}
-   // {userId: 1, id: 1, title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', body: 'quia et suscipit\nsuscipit recusandae consequuntur …strum rerum est autem sunt rem eveniet architecto'}
+// Promise {<pending>}
+// {userId: 1, id: 1, title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', body: 'quia et suscipit\nsuscipit recusandae consequuntur …strum rerum est autem sunt rem eveniet architecto'}
 
 
-/* V. */
+   /* V. */
+
 fetch('https://jsonplaceholder.typicode.com/posts', {
    method: 'POST',
    body: JSON.stringify({id: 201, title: 'My title', body: 'text', userId: 1}),
@@ -93,12 +91,12 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
    .then(console.log)
    .catch(console.error)
 
+// Promise {<pending>}
+// {id: 101}
 
-   // Promise {<pending>}
-   // {id: 101}
 
-   
    /* VI. */
+
 fetch('https://jsonplaceholder.typicode.com/posts', {
    method: 'POST',
    body: JSON.stringify({id: 201, title: 'My title', body: 'text', userId: 1}),
@@ -117,6 +115,6 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
    .catch(console.error)
 
 
-   // Promise {<pending>}
-   // {id: 101, title: 'My title', body: 'text', userId: 1}
+// Promise {<pending>}
+// {id: 101, title: 'My title', body: 'text', userId: 1}
 

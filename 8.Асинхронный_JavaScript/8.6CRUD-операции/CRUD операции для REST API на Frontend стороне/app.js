@@ -14,7 +14,7 @@ document.getElementById('addTodo').addEventListener('click', async () => {
       const res = await fetch('https://jsonplaceholder.typicode.com/todos', {
          method: 'POST',
          headers: {
-            'Content-'
+            'Content-Type': 'application/json',
          }
       });
    }

@@ -56,6 +56,7 @@ ul {
     color: red;
     cursor: pointer;
     font-weight: bolder;
+    margin-left: auto; /* крестик для удаления задач не выровнен - а так по выровнен */
 }
 .close:hover {
     color:tomato

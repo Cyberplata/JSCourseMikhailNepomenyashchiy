@@ -46,7 +46,7 @@ function initApp() {
 }
 
 
-// Asunc logic
+// Async logic
 async function getAllTodos() {
    const response = await fetch('https://jsonplaceholder.typicode.com/todos');
    const data = await response.json();

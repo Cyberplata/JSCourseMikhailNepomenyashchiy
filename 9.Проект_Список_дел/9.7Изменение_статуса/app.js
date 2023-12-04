@@ -81,6 +81,10 @@ function handleTodoChange() {
    toggleTodoComplete(todoId, completed);
 }
 
+function handleClose() {
+   const todoId = this.parentElement.dataset.id;
+   deleteTodo(todoId);
+}
 // Async logic
 async function getAllTodos() {
    const response = await fetch('https://jsonplaceholder.typicode.com/todos');

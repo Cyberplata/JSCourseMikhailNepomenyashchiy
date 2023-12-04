@@ -48,7 +48,9 @@ function createUserOption(user) {
    userSelect.append(option);
 }
 
-
+function alertError(error) {
+   alertError(error);
+}
 
 // Event Logic
 function initApp() {
@@ -84,17 +86,25 @@ function handleTodoChange() {
 
 // Async logic
 async function getAllTodos() {
-   const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=15');
-   const data = await response.json();
-   
-   return data;
+   try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=15');
+      const data = await response.json();
+
+      return data;
+   } catch (error) {
+      alertError(error);
+   }
 }
 
 async function getAllUsers() {
-   const response = await fetch('https://jsonplaceholder.typicode.com/users?_limit=5');
-   const data = await response.json();
-   
-   return data;
+   try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users?_limit=5');
+      const data = await response.json();
+
+      return data;
+   } catch (error) {
+      alertError(error);
+   }
 }
 
 async function createTodo(todo) {

@@ -5,8 +5,6 @@ const userSelect = document.getElementById('user-todo');
 const form = document.querySelector('form');
 let todos = [];
 let users = [];
-console.log(todos);
-console.log(users);
 
 // Attach Events
 document.addEventListener('DOMContentLoaded', initApp);
@@ -32,7 +30,6 @@ function printTodo({id, userId, title, completed}) {
    const close = document.createElement('span');
    close.innerHTML = '&times;';
    close.className = 'close';
-   close.addEventListener('click', handleClose);
 
    li.prepend(status);
    li.append(close);
@@ -51,14 +48,8 @@ function createUserOption(user) {
    userSelect.append(option);
 }
 
-function removerTodo(todoId) {
-   todos = todos.filter(todo => todo.id !== todoId);
-
-   const todo = todoList.querySelector(`[data-id="${todoId}"]`);
-   todo.querySelector('input').removeEventListener('change', handleTodoChange);
-   todo.querySelector('.close').removeEventListener('click', handleClose);
-
-   todo.remove();
+function alertError(error) {
+   alertError(error);
 }
 
 // Event Logic
@@ -93,24 +84,27 @@ function handleTodoChange() {
    toggleTodoComplete(todoId, completed);
 }
 
-function handleClose() {
-   const todoId = this.parentElement.dataset.id;
-   deleteTodo(todoId);
-}
-
 // Async logic
 async function getAllTodos() {
-   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-   const data = await response.json();
-   
-   return data;
+   try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=15');
+      const data = await response.json();
+
+      return data;
+   } catch (error) {
+      alertError(error);
+   }
 }
 
 async function getAllUsers() {
-   const response = await fetch('https://jsonplaceholder.typicode.com/users');
-   const data = await response.json();
+   try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users?_limit=5');
+      const data = await response.json();
 
-   return data;
+      return data;
+   } catch (error) {
+      alertError(error);
+   }
 }
 
 async function createTodo(todo) {
@@ -145,24 +139,5 @@ async function toggleTodoComplete(todoId, completed) {
 
    if (!response.ok) {
       // Error
-   }
-}
-
-async function deleteTodo(todoId) {
-   const response = await fetch(
-       `https://jsonplaceholder.typicode.com/todos/${todoId}`,
-       {
-          method: 'DELETE',
-          headers: {
-             'Content-Type': 'application/json',
-          },
-       }
-   );
-   // const data = await response.json();
-   // console.log(data);
-
-   if (response.ok) {
-      // remove Todo from DOM
-      removerTodo(todoId);
    }
 }

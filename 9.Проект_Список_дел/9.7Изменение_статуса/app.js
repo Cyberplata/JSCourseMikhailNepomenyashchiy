@@ -49,6 +49,16 @@ function createUserOption(user) {
    userSelect.append(option);
 }
 
+function removerTodo(todoId) {
+   todos = todos.filter(todo => todo.id !== todoId);
+
+   const todo = todoList.querySelector(`[data-id="${todoId}"]`);
+   todo.querySelector('input').removeEventListener('change', handleTodoChange);
+   todo.querySelector('.close').removeEventListener('click', handleClose);
+
+   todo.remove();
+}
+
 // Event Logic
 function initApp() {
    Promise.all([getAllTodos(), getAllUsers()]).then(values => {
@@ -138,14 +148,18 @@ async function toggleTodoComplete(todoId, completed) {
 
 async function deleteTodo(todoId) {
    const response = await fetch(
-       `https://jsonplaceholder.typicode.com/todos/${todoId}`, {
+       `https://jsonplaceholder.typicode.com/todos/${todoId}`,
+       {
           method: 'DELETE',
           headers: {
              'Content-Type': 'application/json',
           },
        }
    );
+   // const data = await response.json();
+   // console.log(data);
 
-   const data = await response.json();
-   console.log(data);
+   if (response.ok) {
+      // remove Todo from DOM
+   }
 }

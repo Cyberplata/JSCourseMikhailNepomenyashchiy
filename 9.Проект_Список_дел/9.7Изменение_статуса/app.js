@@ -85,6 +85,7 @@ function handleClose() {
    const todoId = this.parentElement.dataset.id;
    deleteTodo(todoId);
 }
+
 // Async logic
 async function getAllTodos() {
    const response = await fetch('https://jsonplaceholder.typicode.com/todos');
@@ -133,4 +134,18 @@ async function toggleTodoComplete(todoId, completed) {
    if (!response.ok) {
       // Error
    }
+}
+
+async function deleteTodo(todoId) {
+   const response = await fetch(
+       `https://jsonplaceholder.typicode.com/todos/${todoId}`, {
+          method: 'DELETE',
+          headers: {
+             'Content-Type': 'application/json',
+          },
+       }
+   );
+
+   const data = await response.json();
+   console.log(data);
 }

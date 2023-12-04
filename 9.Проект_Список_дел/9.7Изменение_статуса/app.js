@@ -30,6 +30,7 @@ function printTodo({id, userId, title, completed}) {
    const close = document.createElement('span');
    close.innerHTML = '&times;';
    close.className = 'close';
+   close.addEventListener('click', handleClose);
 
    li.prepend(status);
    li.append(close);

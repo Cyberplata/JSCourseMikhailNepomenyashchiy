@@ -1,3 +1,1 @@
-console.log('Hello from entry point!!!');   
-
-
+console.log('Hello from entry point');

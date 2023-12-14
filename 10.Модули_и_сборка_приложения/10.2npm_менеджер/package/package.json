@@ -1,0 +1,12 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "print": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

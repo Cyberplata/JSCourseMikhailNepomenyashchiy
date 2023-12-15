@@ -2,8 +2,9 @@
   "name": "package",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "start": "npx parcel index.html",
+    "build": "parcel build index.html",
     "print": "node index.js"
   },
   "keywords": [],

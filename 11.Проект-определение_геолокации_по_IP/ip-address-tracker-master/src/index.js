@@ -1,6 +1,7 @@
-import 'leaflet/dist/leaflet.css'
+import 'babel-polyfill';
+import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import {addTileLayer, validateIp} from './helpers';
+import {addTileLayer, getAddress, validateIp} from './helpers';
 import icon from '../images/icon-location.svg';
 
 
@@ -53,9 +54,13 @@ L.popup()
 function getData() {
     // проверка данных
     if (validateIp(ipInput.value)) {
-        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_6Wxw1bBSgYv8Bw8a0CP1E3cj1oGsh&ipAddress=${ipInput.value}`)
-            .then(response => response.json())
+        getAddress(ipInput.value)
             .then(setInfo)
+
+        // fetch(`
+        //     https://geo.ipify.org/api/v2/country,city?apiKey=at_6Wxw1bBSgYv8Bw8a0CP1E3cj1oGsh&ipAddress=${ipInput.value}`)
+        //         .then(response => response.json())
+        //         .then(setInfo)
     }
 }
 

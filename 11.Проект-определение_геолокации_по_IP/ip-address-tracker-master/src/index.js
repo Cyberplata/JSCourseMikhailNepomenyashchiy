@@ -53,7 +53,7 @@ L.popup()
 function getData() {
     // проверка данных
     if (validateIp(ipInput.value)) {
-        fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_6Wxw1bBSgYv8Bw8a0CP1E3cj1oGsh&ipAddress=${ipInput.value}`)
+        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_6Wxw1bBSgYv8Bw8a0CP1E3cj1oGsh&ipAddress=${ipInput.value}`)
             .then(response => response.json())
             .then(setInfo)
     }
@@ -66,9 +66,14 @@ function handleKey(e) {
 }
 
 function setInfo(mapData) {
+    const {lat, lng, country, region, timezone} = mapData.location;
+
     console.log(mapData);
     ipInfo.innerText = mapData.ip;
-    locationInfo.innerText = mapData.location.country + ' ' + mapData.location.region;
-    timezoneInfo.innerText = mapData.location.timezone;
+    locationInfo.innerText = country + ' ' + region;
+    timezoneInfo.innerText = timezone;
     ispInfo.innerText = mapData.isp;
+
+    map.setView([lat, lng]);
+    L.marker([lat, lng], {icon: markerIcon}).addTo(map).bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 }

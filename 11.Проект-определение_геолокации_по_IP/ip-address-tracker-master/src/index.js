@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import {addTileLayer, getAddress, validateIp} from './helpers';
+import {addOffset, addTileLayer, getAddress, validateIp} from './helpers';
 import icon from '../images/icon-location.svg';
 
 
@@ -30,9 +30,7 @@ const map = L.map(mapArea, {
     zoomControl: false
 });
 addTileLayer(map);
-L.marker([51.505, -0.09], {
-    icon: markerIcon
-}).addTo(map).bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+L.marker([51.505, -0.09], {icon: markerIcon}).addTo(map).bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
 L.circle([51.508, -0.11], {
     color: 'red',
@@ -80,5 +78,16 @@ function setInfo(mapData) {
     ispInfo.innerText = mapData.isp;
 
     map.setView([lat, lng]);
-    L.marker([lat, lng], {icon: markerIcon}).addTo(map).bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    L.marker([lat, lng], {
+        icon: markerIcon,
+
+    }).addTo(map).bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+    if (matchMedia("(max-width: 1023px)").matches) {
+        addOffset(map);
+    }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    getAddress('122.22.22.1').then(setInfo);
+});

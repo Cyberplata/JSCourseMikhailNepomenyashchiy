@@ -24,6 +24,8 @@ class PaidPlayer extends Player {
     }
 }
 
+// class SuperPaidPlayer extends PaidPlayer {}
+
 const player3 = new Player('tor');
 const player4 = new Player('loki', 200);
 const pp1 = new PaidPlayer('stark', 200, 100000); 

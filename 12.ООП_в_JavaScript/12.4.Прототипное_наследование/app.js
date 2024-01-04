@@ -10,15 +10,13 @@ Player.prototype.decreaseScore = function(num = 10) {
     this.score -= num;
 }
 
-const player3 = new Player('tor');
-const player4 = new Player('loki', 200);
 
 class Player {  // Новая версия записи
     constructor(login, score = 100) {
         this.login = login;
         this.score = score;
     }
-
+    
     increaseScore(num = 10) {
         this.score += num;
     }
@@ -28,6 +26,8 @@ class Player {  // Новая версия записи
     }
 }
 
+const player3 = new Player('tor');
+const player4 = new Player('loki', 200);
 
 
 // DRY don't repeat yourself

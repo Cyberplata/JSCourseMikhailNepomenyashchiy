@@ -10,25 +10,25 @@
 // 4. содержит статический метод fromFahrenheit для создания экземпляра с автоматически пересчитанным значением в Цельсиях (прим.: для округления значений используйте Math.round).
 
 
-class Temperature { 
-    constructor(temp = 0) {
-        this.celsiusTemp = temp;
-    }
-    get celsius() {
-        return this.celsiusTemp;
-    }
-    get fahrenheit() {
-        return Math.round(this.celsiusTemp * 9/5 + 32);
-    }
-    set celsius(temp) {
-        this.celsiusTemp = temp;
-    }
-    set fahrenheit(temp) {
-        this.celsiusTemp = Math.round((temp - 32)) * 5/9;
-    }
-    static fromFahrenheit(temp) {
-        return Math.round((temp - 32)) * 5/9;
-    }
+class Temperature {
+	constructor(t = 0) {
+		this.celsiusTemp = t;
+	}
+	get celsius() {
+		return this.celsiusTemp;
+	}
+	get fahrenheit() {
+		return Math.round(this.celsiusTemp * 1.8 + 32);
+	}
+	set celsius(t) {
+		this.celsiusTemp = t;
+	}
+	set fahrenheit(t) {
+		this.celsiusTemp = Math.round((t - 32) / 1.8);
+	}
+	static fromFahrenheit(t) {
+		return Math.round((t - 32) / 1.8);
+	}
 }
 
 const day1 = new Temperature(25);

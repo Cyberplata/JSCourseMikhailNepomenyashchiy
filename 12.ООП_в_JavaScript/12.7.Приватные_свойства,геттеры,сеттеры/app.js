@@ -11,11 +11,11 @@ class Player {
         Player.totalPlayers++;
     }
 
-    get fullName() {    // так намного лучше, позволяет высчитать динамический
+    get fullName() {    // так намного лучше, позволяет высчитать динамический свойство
         return this.firstName + ' ' + this.lastName;
     }
 
-    set fullName(name) {
+    set fullName(name) {    // позволяет изменить свойство динамический
         const [f, l] = name.split(' ');
         this.firstName = f;
         this.lastName = l;

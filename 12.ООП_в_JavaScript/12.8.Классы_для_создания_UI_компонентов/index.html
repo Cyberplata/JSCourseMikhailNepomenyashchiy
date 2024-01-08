@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal from Class</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Modal from Class</h1>
+    <button id="openModal">
+        Click me
+    </button>
+
+    <button id="openModal2">
+        Click me 2
+    </button>
+
+    <script src="modal.js"></script>
+    <script>
+        const btn1 = document.getElementById('openModal');
+        btn1.addEventListener('click', () => {
+            new Modal('Text for modal 1');
+        });
+    </script>
+</body>
+</html>
